@@ -1,0 +1,246 @@
+/* Page Specific Styles */
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: var(--space-4xl);
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero h1 {
+    margin-bottom: var(--space-md);
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-btns {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+/* Products Section (Home) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-2xl);
+    margin-top: var(--space-3xl);
+}
+
+.product-card {
+    text-align: left;
+}
+
+.product-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--color-neon-blue);
+    margin-bottom: var(--space-md);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.product-card h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+}
+
+.product-card p {
+    margin-bottom: var(--space-lg);
+}
+
+/* Founder Section (About Page) */
+.about-layout {
+    display: flex;
+    gap: var(--space-4xl);
+    align-items: flex-start;
+    margin-bottom: var(--space-4xl);
+}
+
+.founder-sidebar {
+    flex: 0 0 400px;
+    position: sticky;
+    top: 100px;
+}
+
+.founder-image-container {
+    width: 100%;
+    height: 500px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow-hover);
+    margin-bottom: var(--space-xl);
+}
+
+.founder-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-info h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-xs);
+}
+
+.founder-subtitle {
+    color: var(--color-neon-blue);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+/* Timeline (About Page) */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: var(--space-3xl) auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--glass-border);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--space-3xl);
+    width: 50%;
+    padding: 0 var(--space-xl);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background: var(--color-neon-purple);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-neon-purple);
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px;
+}
+
+/* Contact Form */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.form-control {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    color: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+    .about-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .founder-sidebar {
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+        position: static;
+        margin-bottom: var(--space-3xl);
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-btns {
+        flex-direction: column;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: var(--space-2xl);
+    }
+
+    .timeline-dot {
+        left: 12px !important;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}

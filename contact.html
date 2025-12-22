@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | DREAM AI</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+    <div id="galaxy-background">
+        <canvas id="galaxy-canvas"></canvas>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo neon-text">
+                <div class="logo-main"><span>✦</span> DREAM AI</div>
+                <div class="logo-subtitle">Darsh Yadav</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="platforms.html" class="nav-link">Platforms</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <button class="mobile-toggle">☰</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="reveal">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--space-4xl);">
+                    <h1 class="neon-text gradient-text">Get In Touch</h1>
+                    <p>Have questions or want to join our early access program? We'd love to hear from you.</p>
+                </div>
+
+                <div class="contact-container glass-card">
+                    <form id="contact-form" action="https://formspree.io/f/darshyadav@example.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control"
+                                placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" name="subject" id="subject" class="form-control"
+                                placeholder="What is this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="5"
+                                placeholder="Tell us about your dreams..." required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">
+                            <span class="spinner"></span>
+                            <span class="btn-text">Send Message</span>
+                        </button>
+                    </form>
+                    <div id="form-success" class="form-success">
+                        <h3 class="neon-text-blue">Thanks! Message sent to Darsh Yadav</h3>
+                        <p>Our AI will process your request and we'll get back to you soon.</p>
+                        <button class="btn btn-outline btn-sm" style="margin-top: var(--space-md);"
+                            onclick="location.reload()">Send Another</button>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: var(--space-3xl); color: var(--color-text-secondary);">
+                    <p>Email: yd.darsh12@gmail.com</p>
+                    <p>Follow us on: Twitter • Instagram • LinkedIn</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 DREAM AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/galaxy.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('form-success');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    const data = await response.json();
+                    if (Object.hasOwn(data, 'errors')) {
+                        alert(data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert("Oops! There was a problem submitting your form");
+                    }
+                }
+            } catch (error) {
+                alert("Oops! There was a problem submitting your form");
+            } finally {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
