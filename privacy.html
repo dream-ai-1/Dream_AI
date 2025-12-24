@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
 
 <body>
@@ -29,37 +30,47 @@
                 <a href="products.html" class="nav-link">Products</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
+            <button class="mobile-toggle">☰</button>
         </div>
     </nav>
 
     <main>
         <section class="reveal">
             <div class="container">
-                <div class="glass-card" style="max-width: 800px; margin: 0 auto;">
-                    <h1 class="neon-text" style="font-size: var(--font-size-3xl); margin-bottom: var(--space-xl);">
-                        Privacy Policy</h1>
-                    <p style="margin-bottom: var(--space-lg);">Your privacy is paramount. At DREAM AI, we believe your
-                        dreams are your most private data.</p>
+                <div class="glass-card" style="max-width: 800px; margin: 0 auto; padding: var(--space-xl);">
+                    <h1 class="neon-text gradient-text"
+                        style="font-size: var(--font-size-3xl); margin-bottom: var(--space-xl); text-align: center;">
+                        Privacy Policy
+                    </h1>
+                    <p style="margin-bottom: var(--space-lg); text-align: center; color: var(--color-text-secondary);">
+                        Your privacy is paramount. At DREAM AI, we believe your dreams are your most private data.
+                    </p>
 
-                    <h3 style="color: var(--color-neon-blue); margin-top: var(--space-xl);">1. Data Collection</h3>
-                    <p>We only collect dream narratives and usage data that you explicitly provide to improve our AI
-                        models. All dream data is anonymized before processing.</p>
+                    <h3 style="color: var(--color-neon-blue); margin: var(--space-xl) 0 var(--space-md) 0;">1. Data
+                        Collection</h3>
+                    <p style="margin-bottom: var(--space-lg);">We only collect dream narratives and usage data that you
+                        explicitly provide to improve our AI models. All dream data is anonymized before processing.</p>
 
-                    <h3 style="color: var(--color-neon-blue); margin-top: var(--space-xl);">2. Data Usage</h3>
-                    <p>Your data is used solely for interpretation, generation, and personalization of your DREAM AI
-                        experience. We do not sell your subconscious data to third parties.</p>
+                    <h3 style="color: var(--color-neon-blue); margin: var(--space-xl) 0 var(--space-md) 0;">2. Data
+                        Usage</h3>
+                    <p style="margin-bottom: var(--space-lg);">Your data is used solely for interpretation, generation,
+                        and personalization of your DREAM AI experience. We do not sell your subconscious data to third
+                        parties.</p>
 
-                    <h3 style="color: var(--color-neon-blue); margin-top: var(--space-xl);">3. Security</h3>
-                    <p>We use industry-standard encryption to protect your account and your data from unauthorized
-                        access.</p>
+                    <h3 style="color: var(--color-neon-blue); margin: var(--space-xl) 0 var(--space-md) 0;">3. Security
+                    </h3>
+                    <p style="margin-bottom: var(--space-lg);">We use industry-standard encryption to protect your
+                        account and your data from unauthorized access. Your dreams stay safe with us.</p>
 
-                    <h3 style="color: var(--color-neon-blue); margin-top: var(--space-xl);">4. Updates</h3>
-                    <p>We may update this policy as our technology evolves. We will notify you of any significant
-                        changes.</p>
+                    <h3 style="color: var(--color-neon-blue); margin: var(--space-xl) 0 var(--space-md) 0;">4. Updates
+                    </h3>
+                    <p style="margin-bottom: var(--space-xl);">We may update this policy as our technology evolves. We
+                        will notify you of any significant changes via email or on our platform.</p>
 
                     <div
-                        style="margin-top: var(--space-2xl); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
-                        Last Updated: December 2025
+                        style="text-align: center; padding-top: var(--space-2xl); border-top: 1px solid var(--color-border); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                        <p>Last Updated: December 24, 2025</p>
+                        <p>DREAM AI • Making Dreams Reality</p>
                     </div>
                 </div>
             </div>
@@ -75,6 +86,13 @@
     </footer>
 
     <script src="js/galaxy.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
